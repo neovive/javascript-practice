@@ -12,7 +12,7 @@
 All other values are truthy including true, 'false', and all objects
 
 ### Statements
-A compilation unit contains a set of executable statements.  In browsers, each <script> tag delivers a compilation unit that is immediately executed inline.
+A compilation unit contains a set of executable statements.  In browsers, each `<script>` tag delivers a compilation unit that is immediately executed inline.
 
 A block is a set of statements wrapped in curly braces.  Blocks in JS do not create a new scope, so variables should be defined at the top of the function.
 
