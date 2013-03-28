@@ -127,7 +127,36 @@ stooge["middle-name] = "Curly" // object is augmented with new property
 ```
 
 ### Reference
-Object are passed around by reference.  They are never copied
+Objects are passed around by reference.  They are never copied
+```javascript
+var x = stooge;
+x.nickname = 'Curly';
+var nick = stooge.nickname;  
 
+// nick is 'Curly' because x and stooge are references to same object
+```
 
+### Prototype
+* Every object is linked to a prototype object.
+* All objects are linked to Object.prototype.
+* When you make a new object, you can select the object that should be its prototype.
 
+```javascript
+// Cleaner solution to object creation
+// this augments the main Object with a *create* method
+
+if (typeof Object.create !== 'function') {
+	Object.create = function (o) {
+		var F = function () {};
+		F.prototype = o;
+		return new F();
+	};
+}
+var another_stooge = Object.create(stooge);
+```
+* The prototype link is used only in retrieval.  If an object lacks a property name, JS searches up the prototype chain until it reaches Object.prototype.  If the desired property does not exist anywhere in the prototype chain the result is undefined. This is called delegation.
+
+* Prototype relationship is dynamic.  If you add a new property to a prototype, it is instantly visible to all objects based on that prototype:
+
+stooge.profession = 'actor';
+another_stooge.profession	// 'actor'
