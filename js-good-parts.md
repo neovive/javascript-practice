@@ -90,7 +90,7 @@ var stooge = {
 	"last-name": "Howard"
 };
 
-/* quotes are optional around propery names if the name would be a legal variable name */
+/* quotes are optional around propert names if the name would be a legal variable name */
 
 var flight = {
 	airline: "Oceanic",
@@ -160,3 +160,48 @@ var another_stooge = Object.create(stooge);
 
 stooge.profession = 'actor';
 another_stooge.profession	// 'actor'
+
+
+### Reflection
+JS supports the abilty to inspect objects to determine what properties is has.  The `typeof` operator is used.
+
+```javascript
+typeof flight.number   	// 'number'
+typeof flight.status	// 'string'
+typeof flight.arrival	// 'object'
+
+// any property on prototype chain cna produce a vlaue
+typeof flight.toString	// 'function'
+
+flight.hasOwnProperty('toString')	// false
+```
+
+### Enumeration
+The `for in` statement loops over all of the property names in an object -- including functions and properties in the prototype.
+
+```javascript
+// filter out prototype properties
+var name;
+for (name in another_stooge) {
+	if (typepf another_stooge[name] !== 'function') {
+		console.log(name + ': ' + another_stooge[name]);
+	}
+}
+```
+
+### Delete
+Remove a property from an object
+```javascript
+delete another_stooge.nickname;
+```
+
+
+## Functions
+* Functions are the fundamental modular unit in JS.
+* Functions in JS are objects.
+* Functions are linked to Function.prototype which is linked to Object.prototype.
+* Functions have two hidden properties (context and code)
+* Every function object is created with a prototype property.
+* The prototype property value is an object with a `constructor` property.
+* Functions can be stored in variables, objects and arrays (since they are objects).
+* Functions can be invoked.
