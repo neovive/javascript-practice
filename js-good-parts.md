@@ -365,6 +365,7 @@ Recursive functions call themselves.  Recursion allows dividing a problem into a
 
 ### Closure
 * Inner functions get access to the params and vars of the functions they are defined within.
+
 ```javascript
 // use a closure to protect the value from changes
 
