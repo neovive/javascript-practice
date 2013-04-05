@@ -1,5 +1,5 @@
 // Rock, Paper, Scissors game using Closures
-var game = function (userChoice) {
+var rps = function () {
 
     return {
 
@@ -14,42 +14,38 @@ var game = function (userChoice) {
             } else {
                 return "scissors";
             }
-        },
+        }(),
 
-        play: function() {
+        play: function(userChoice) {
 
-            console.log("userChoice: " + userChoice);
-
-            var computer = this.computerChoice();
-
-            if (userChoice === computer) {
-                return userChoice + "=>" + computer + " = " + "Tie!";
+            if (userChoice === this.computerChoice) {
+                return userChoice + "=>" + this.computerChoice + " = " + "Tie!";
             }
 
             if (userChoice === "rock") {
-                if (computer === "scissors") {
-                    return userChoice + "=>" + computer + " = " + "Rock Wins!";
+                if (this.computerChoice === "scissors") {
+                    return userChoice + "=>" + this.computerChoice + " = " + "Rock Wins!";
                 }
                 else {
-                     return userChoice + "=>" + computer + " = " + "Paper Wins!";
+                     return userChoice + "=>" + this.computerChoice + " = " + "Paper Wins!";
                 }
             }
 
             if (userChoice === "scissors") {
-                if (computer === "rock") {
-                     return userChoice + "=>" + computer + " = " + "Rock Wins!";
+                if (this.computerChoice === "rock") {
+                     return userChoice + "=>" + this.computerChoice + " = " + "Rock Wins!";
                 }
                 else {
-                     return userChoice + "=>" + computer + " = " + "Scissors Wins!";
+                     return userChoice + "=>" + this.computerChoice + " = " + "Scissors Wins!";
                 }
             }
 
             if (userChoice === "paper") {
-                if (computer === "scissors") {
-                     return userChoice + "=>" + computer + " = " + "Scissors Wins!";
+                if (this.computerChoice === "scissors") {
+                     return userChoice + "=>" + this.computerChoice + " = " + "Scissors Wins!";
                 }
                 else {
-                     return userChoice + "=>" + computer + " = " + "Paper Wins!";
+                     return userChoice + "=>" + this.computerChoice + " = " + "Paper Wins!";
                 }
             }
         }
@@ -61,9 +57,6 @@ var game = function (userChoice) {
 };
 
 
-
 //var choice = prompt("Do you choose rock, paper or scissors?");
-
-var result = game("rock");
-//console.log("Result: " + result);
-console.log(result.play());
+var game = rps();
+console.log(game.play("rock"));
