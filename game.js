@@ -18,42 +18,45 @@ var rps = function () {
 
         play: function(userChoice) {
 
+            var output = "User chose " + userChoice + " and Computer chose " + this.computerChoice + ". \n";
+
             if (userChoice === this.computerChoice) {
-                return userChoice + "=>" + this.computerChoice + " = " + "Tie!";
+                output += "Tie!";
+                return output;
             }
 
             if (userChoice === "rock") {
                 if (this.computerChoice === "scissors") {
-                    return userChoice + "=>" + this.computerChoice + " = " + "Rock Wins!";
+                    output += "Rock Wins!";
                 }
                 else {
-                     return userChoice + "=>" + this.computerChoice + " = " + "Paper Wins!";
+                     output += "Paper Wins!";
                 }
             }
 
             if (userChoice === "scissors") {
                 if (this.computerChoice === "rock") {
-                     return userChoice + "=>" + this.computerChoice + " = " + "Rock Wins!";
+                     output += "Rock Wins!";
                 }
                 else {
-                     return userChoice + "=>" + this.computerChoice + " = " + "Scissors Wins!";
+                     output += "Scissors Wins!";
                 }
             }
 
             if (userChoice === "paper") {
                 if (this.computerChoice === "scissors") {
-                     return userChoice + "=>" + this.computerChoice + " = " + "Scissors Wins!";
+                     output += "Scissors Wins!";
                 }
                 else {
-                     return userChoice + "=>" + this.computerChoice + " = " + "Paper Wins!";
+                     output += "Paper Wins!";
                 }
             }
+
+            return output;
         }
 
     };
 
-    //console.log(compare);
-    //compare(userChoice, computerChoice);
 };
 
 
